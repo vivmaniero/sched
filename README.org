@@ -17,7 +17,6 @@ I won't provide any support for any other methods.
 + =pdftk=
 + =pdfgrep=
 + =python3=
-+ =python-beautifulsoup4=
 + =python-requests=
 
 ** Usage

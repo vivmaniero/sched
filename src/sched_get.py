@@ -10,11 +10,10 @@
 
 import subprocess
 import requests
-from bs4 import BeautifulSoup
 
-username = "191JMT2040"
-password = "14329427"
-my_class = "3A3"
+username = "000JMT0000"
+password = "12345678"
+my_class = "0A0"
 
 # -------------------- FIRST FORM
 
@@ -63,6 +62,7 @@ payload = {
     '':   '',
 }
 
+# Download this week's schedule
 response = session.post(auth_url, data=payload)
 open("schedule.pdf", "wb").write(response.content)
 
