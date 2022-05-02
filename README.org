@@ -1,0 +1,35 @@
+* ESPSchedule
+
+Retrieve your ESPRIT schedule like a hacker.
+
+This repository hosts two scripts:
+- [[file:src/sched_get.py][sched_get.py]] which downloads the schedule for every class.
+- [[file:src/sched_extract.sh][sched_extract.sh]] which extracts the relevant schedule from the resulting PDF.
+
+** Prerequisites
+
+- =bash=
+- =python3=
+- =python-beautifulsoup4=
+- =python-requests=
+
+** Usage
+
+Navigate to the =src/= directory.
+#+begin_src sh
+cd src/
+#+end_src
+
+Open the =sched_get.py= file and modify the =username=, =password= and
+=my_class= variables accordingly - you only have to do this once.
+
+Run =sched_get.py=.
+#+begin_src sh
+python3 sched_get.py
+#+end_src
+
+=schedule.pdf= should now appear in your working directory.
+
+** License
+
+This software is licensed under [[file:LICENSE][the beerware license]].
