@@ -12,6 +12,7 @@ This repository hosts two scripts:
 - =python3=
 - =python-beautifulsoup4=
 - =python-requests=
+- =moreutils=
 
 ** Usage
 
