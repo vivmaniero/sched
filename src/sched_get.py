@@ -12,9 +12,9 @@ import subprocess
 import requests
 from bs4 import BeautifulSoup
 
-username = "123JMT4567"
-password = "12345678"
-my_class = "1A0"
+username = "191JMT2040"
+password = "14329427"
+my_class = "3A3"
 
 # -------------------- FIRST FORM
 
