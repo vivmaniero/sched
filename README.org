@@ -1,18 +1,18 @@
 * ESPSchedule
 
-Retrieve your ESPRIT schedule like a hacker.
+ESPRIT Student? Harness the power of the shell to retrieve this week's schedule.
 
 This repository hosts two scripts:
-- [[file:src/sched_get.py][sched_get.py]] which downloads the schedule for every class.
-- [[file:src/sched_extract.sh][sched_extract.sh]] which extracts the relevant schedule from the resulting PDF.
+- [[file:src/sched_get.py][sched_get.py]]: authenticates to the website, obtains the latest schedule and downloads it.
+- [[file:src/sched_extract.sh][sched_extract.sh]]: extracts the relevant schedule from the initial PDF and overwrites it.
 
 ** Prerequisites
 
 - =bash=
+- =moreutils=
 - =python3=
 - =python-beautifulsoup4=
 - =python-requests=
-- =moreutils=
 
 ** Usage
 
