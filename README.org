@@ -1,4 +1,4 @@
-* ESPSchedule
+* vivmaniero/sched
 
 ESPRIT Student? Harness the power of the shell to retrieve this week's schedule.
 
