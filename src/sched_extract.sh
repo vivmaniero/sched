@@ -8,12 +8,11 @@
 #
 # -- grtcdr
 
-FILE="schedule.pdf"
 CLASS="$1"
-OUT="schedule.pdf"
+FILE="schedule.pdf"
 
-## Find the page that contains $CLASS
+# -- Find the page that contains $CLASS
 PAGE="$(pdfgrep -n "$CLASS" "$FILE" | cut -f1 -d ":" | head -n1 | tr '\n' ' ')"
 
-## Extract pages to new file in original directory
+# -- Extract pages to new file in original directory
 pdftk "$FILE" cat $PAGE output - | sponge "$FILE"
