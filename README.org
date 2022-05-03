@@ -5,8 +5,8 @@ This repository hosts two scripts:
 - [[file:src/sched_get.py][sched_get.py]]: authenticates through the website, and downloads the latest schedule.
 - [[file:src/sched_extract.sh][sched_extract.sh]]: extracts the relevant schedule from the initial PDF and overwrites it.
 
-These scripts have been tested to work on _Linux_, but they should
-work just fine on _macOS_ as well. _Windows_ users should use [[https://docs.microsoft.com/en-us/windows/wsl/install][WSL]], as
+These scripts have been tested to work on /Linux/, but they should
+work just fine on /macOS/ as well. /Windows/ users should use [[https://docs.microsoft.com/en-us/windows/wsl/install][WSL]], as
 I won't provide any support for any other methods.
 
 ** Prerequisites
