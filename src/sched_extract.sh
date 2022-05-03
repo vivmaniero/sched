@@ -12,7 +12,7 @@ CLASS="$1"
 FILE="schedule.pdf"
 
 # -- Find the page that contains $CLASS
-PAGE="$(pdfgrep -n "$CLASS" "$FILE" | cut -f1 -d ":" | head -n1 | tr '\n' ' ')"
+PAGE="$(pdfgrep -m 1 -n "$CLASS" "$FILE" | cut -f1 -d ":" | head -n1)"
 
-# -- Extract pages to new file in original directory
+# -- Extract the page and overwrite the original $FILE
 pdftk "$FILE" cat $PAGE output - | sponge "$FILE"
