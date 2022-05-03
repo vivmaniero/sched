@@ -1,5 +1,4 @@
 * vivmaniero/sched
-
 ESPRIT Student? Harness the power of the shell to retrieve this week's schedule.
 
 This repository hosts two scripts:
@@ -11,7 +10,6 @@ work just fine on _macOS_ as well. _Windows_ users should use [[https://docs.mic
 I won't provide any support for any other methods.
 
 ** Prerequisites
-
 + =bash=
 + =moreutils=
 + =pdftk=
@@ -20,12 +18,10 @@ I won't provide any support for any other methods.
 + =python-requests=
 
 ** Usage
-
 1. Navigate to the =src/= directory.
 2. Specify your =username=, =password= and =class= in [[file:src/credentials.conf][credentials.conf]].
 3. In your terminal emulator, run =python3 sched_get.py=.
 4. Assuming your credentials are correct, =schedule.pdf= should now appear in your working directory.
 
-** License
-
-This software is licensed under [[file:LICENSE][the beerware license]].
+** Copying
+This software is subject to the terms of [[file:COPYING][the beerware license]].
