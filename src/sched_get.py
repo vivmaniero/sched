@@ -11,9 +11,22 @@
 import subprocess
 import requests
 
-my_username = "123JMT4567"
-my_password = "12345678"
-my_class = "1A1"
+def read_config():
+    config = {'username': '', 'password': '', 'class': ''}
+    with open('credentials.conf', 'r') as reader:
+        for line in reader:
+            entry = line.split(':', 1)
+            key = entry[0].split()
+            value = entry[1].split()
+            if key[0] == 'username':
+                config['username'] = value[0]
+            elif key[0] == 'password':
+                config['password'] = value[0]
+            elif key[0] == "class":
+                config['class'] = value[0]
+        return config
+
+config = read_config()
 
 # -------------------- FIRST FORM
 
@@ -24,7 +37,7 @@ payload = {
     '__EVENTVALIDATION': '/wEdAA1fByEQgXYMM2HBHEe7WK24D4zZrxX92uOlyIx1SyGTQokHj7KsGQZ9KI/q0cgR79eMO7fmjkJSfq6Zbgk2kTWn5BPdHG87XtyblNclsuAS8LvwPnslbtZbTzH+LM3KrmKoScikkrtCyMBYLZBZxv2YCNTGu6fpAlK5HiRhQ3QX7uQuDNsn18Vb/yPhT9ZPmVoNeSKFy2zxLVV4+zExdQxF5O2yeRHTM5Q6txDv+t953Rsahgpohlzzax1rmqU36I8bifdujSibODz2lHN+RHz65cGlq/w92chUS7cjKZ5WN/IUEbMK1wJPMmUOGacsXlc=',
     '__VIEWSTATE': '/wEPDwUJNDE1NjEwODA3D2QWAmYPZBYCAgMPZBYCAgUPDxYCHgRUZXh0BQkyMDIxLzIwMjJkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUSY3RsMDAkSW1hZ2VCdXR0b24xT+ExykuWiw1aqegOBldh/KoZ1rhItcsHE7VloclpAWg=',
     '__VIEWSTATEGENERATOR':  '717FCBFE',
-    'ctl00$ContentPlaceHolder1$TextBox3': my_username,
+    'ctl00$ContentPlaceHolder1$TextBox3': config['username'],
     'ctl00$ContentPlaceHolder1$Button3': 'Suivant'
 }
 
@@ -42,7 +55,7 @@ payload = {
     '__EVENTVALIDATION': '/wEdAA7t0UblTq7vyhbvAmQ3+XRYD4zZrxX92uOlyIx1SyGTQokHj7KsGQZ9KI/q0cgR79eMO7fmjkJSfq6Zbgk2kTWn5BPdHG87XtyblNclsuAS8LvwPnslbtZbTzH+LM3KrmKoScikkrtCyMBYLZBZxv2Y4YHt2yH9TCYlNrTCCQccHuaXknurQIHyJEMAivskpdkfOLtcwEziInaQqEgDH0GiDXkihcts8S1VePsxMXUMReTtsnkR0zOUOrcQ7/rfed0bGoYKaIZc82sda5qlN+iPG4n3bo0omzg89pRzfkR8+v768YqmYrRmR4Rddm8U+250AJHdFVmJSIGJz9NEWbCe',
     '__VIEWSTATE': '/wEPDwUJNDE1NjEwODA3D2QWAmYPZBYCAgMPZBYEAgUPDxYCHgRUZXh0BQkyMDIxLzIwMjJkZAIJD2QWAgIQD2QWEAIBDw8WAh4HVmlzaWJsZWhkZAIDDw8WBB8ABQoxOTFKTVQyMDQwHwFoZGQCBw8PFgIfAWdkZAIJDw8WAh8BZ2RkAgsPDxYCHgdFbmFibGVkZ2RkAg0PDxYCHwFnZGQCDw8PFgIfAWdkZAIRDw8WAh8BaGRkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBRJjdGwwMCRJbWFnZUJ1dHRvbjGnb4LFia208Rgym4FSeWK1wIZC7QwUsmt16onxmcDyJQ==',
     '__VIEWSTATEGENERATOR':  '717FCBFE',
-    'ctl00$ContentPlaceHolder1$TextBox7':   my_password,
+    'ctl00$ContentPlaceHolder1$TextBox7': config['password'],
     'ctl00$ContentPlaceHolder1$ButtonEtudiant':  'Connexion'
 }
 
@@ -66,5 +79,5 @@ response = session.post(auth_url, data=payload)
 open("schedule.pdf", "wb").write(response.content)
 
 # Leave the rest to sched_extract.sh
-proc = subprocess.Popen(["bash", "sched_extract.sh", my_class], stdout=subprocess.PIPE)
+proc = subprocess.Popen(["bash", "sched_extract.sh", config['class']], stdout=subprocess.PIPE)
 out, err = proc.communicate()

@@ -21,20 +21,10 @@ I won't provide any support for any other methods.
 
 ** Usage
 
-Navigate to the =src/= directory.
-#+begin_src sh
-cd src/
-#+end_src
-
-Open the =sched_get.py= file and modify the =my_username=, =my_password= and
-=my_class= variables accordingly - you only have to do this once.
-
-Run =sched_get.py=.
-#+begin_src sh
-python3 sched_get.py
-#+end_src
-
-=schedule.pdf= should now appear in your working directory.
+1. Navigate to the =src/= directory.
+2. Specify your =username=, =password= and =class= in [[file:src/credentials.conf][credentials.conf]].
+3. In your terminal emulator, run =python3 sched_get.py=.
+4. Assuming your credentials are correct, =schedule.pdf= should now appear in your working directory.
 
 ** License
 
