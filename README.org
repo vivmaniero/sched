@@ -26,7 +26,7 @@ Navigate to the =src/= directory.
 cd src/
 #+end_src
 
-Open the =sched_get.py= file and modify the =username=, =password= and
+Open the =sched_get.py= file and modify the =my_username=, =my_password= and
 =my_class= variables accordingly - you only have to do this once.
 
 Run =sched_get.py=.
